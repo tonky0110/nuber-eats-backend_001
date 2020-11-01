@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
@@ -6,20 +7,25 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
 
 @Module({
   imports: [
-    RestaurantsModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.test',
+      ignoreEnvFile: process.env.NODE_ENV == 'prod',
+    }),
     TypeOrmModule.forRoot({
-      type: '',
-      host: '',
-      port: ,
-      username: '',
-      password: '',
-      database: '',
-      synchronize: true,
-      logging: true,
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      synchronize: Boolean(process.env.DB_SYNCHRONIZE) || true,
+      logging: Boolean(process.env.DB_LOGGING) || true,
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
     }),
+    RestaurantsModule,
   ],
   controllers: [],
   providers: [],

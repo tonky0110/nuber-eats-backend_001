@@ -10,10 +10,12 @@ The Backend of Nuber Eats Clone
 
 - [V] npm i @nestjs/graphql graphql-tools graphql apollo-server-express
 - [V] npm i class-validator class-transformer
+- [V] npm i @nestjs/config
+- [V] npm i cross-env
 
-[DB]- [V]
+[DB]
 
-- [V]
+- [V] npm i @nestjs/typeorm typeorm pg
 
 ## Database - postgrasql
 

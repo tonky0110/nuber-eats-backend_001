@@ -23,3 +23,22 @@ The Backend of Nuber Eats Clone
 
 - www.postgrasql.com > download && postico install(mac) or pgAdmin(windows)
 - /du; - 사용자 권한 확인.
+
+## user Model:
+
+= id
+
+- createdAt
+- updatedAt
+
+- email
+- password
+- role(client|owner|delivery)
+
+## User CRUD:
+
+- Create Account
+- Log In
+- See Profile
+- Edit Profile
+- Verify Email

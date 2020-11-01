@@ -10,25 +10,20 @@ export class Restaurant {
   @Field(type => Number)
   id: number;
 
-  @Field(type => String, { nullable: false })
+  @Field(type => String)
   @Column()
   @IsString()
   @Length(5)
   name: string;
 
-  @Field(type => Boolean, { defaultValue: true })
+  @Field(type => Boolean, { nullable: true })
   @Column({ default: true })
   @IsOptional()
   @IsBoolean()
   isVegan: boolean;
 
-  @Field(type => String)
+  @Field(type => String, { defaultValue: '강남' })
   @Column()
   @IsString()
   address: string;
-
-  @Field(type => String, { defaultValue: '' })
-  @Column()
-  @IsString()
-  ownersName: string;
 }

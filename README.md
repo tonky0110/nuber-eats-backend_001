@@ -16,6 +16,8 @@ The Backend of Nuber Eats Clone
 [DB]
 
 - [V] npm i @nestjs/typeorm typeorm pg
+- [V] npm i bcrypt // 단방향 암호화
+- [V] npm i types/bcrypt --dev-only
 
 ## Database - postgrasql
 

@@ -21,19 +21,18 @@ export class UsersService {
     email,
     password,
     role,
-  }: CreateAccountInputType): Promise<Boolean> {
+  }: CreateAccountInputType): Promise<string | undefined> {
     try {
       // 1. check new User
       const exists = await this.users.findOne({ email });
       if (exists) {
         // make error
-        return;
+        return 'There is a user with that email aleady.';
       }
       // 2. create user & hash the password
       await this.users.save(this.users.create({ email, password, role }));
-      return true;
     } catch (e) {
-      console.error(e);
+      return "Couldn't create account.";
     }
   }
 }

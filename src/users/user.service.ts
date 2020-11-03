@@ -10,14 +10,17 @@ import {
 import { User } from './entities/user.entity';
 import { LoginInput } from './dto/login.dto';
 import { ConfigService } from '@nestjs/config';
+import { JwtService } from 'src/jwt/jwt.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly users: Repository<User>,
     private readonly config: ConfigService,
+    private readonly jwtService: JwtService,
   ) {
     // console.log(this.config.get('SECRET_KEY'));
+    // this.jwtService.hello();
   }
 
   getAll(): Promise<User[]> {

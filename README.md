@@ -13,6 +13,11 @@ The Backend of Nuber Eats Clone
 - [V] npm i @nestjs/config
 - [V] npm i cross-env
 
+[Authentication]
+
+- [V] npm i jsonwebtoken
+- [V] npm i @types/jsonwebtoken --only-dev
+
 [DB]
 
 - [V] npm i @nestjs/typeorm typeorm pg

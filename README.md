@@ -49,3 +49,5 @@ The Backend of Nuber Eats Clone
 - See Profile
 - Edit Profile
 - Verify Email
+- Authentication
+  secret key gen: https://randomkeygen.com/

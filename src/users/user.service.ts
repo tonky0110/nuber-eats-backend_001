@@ -79,7 +79,7 @@ export class UsersService {
       }
 
       // 3. make a JWT and give it to the user
-      const token = jwt.sign({ id: user.id }, this.config.get('SECRET_KEY'));
+      const token = this.jwtService.sign({ id: user.id });
       return {
         ok: true,
         token,

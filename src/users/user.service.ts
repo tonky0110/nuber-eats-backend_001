@@ -79,7 +79,7 @@ export class UsersService {
       }
 
       // 3. make a JWT and give it to the user
-      const token = this.jwtService.sign({ id: user.id });
+      const token = this.jwtService.sign(user.id);
       return {
         ok: true,
         token,
